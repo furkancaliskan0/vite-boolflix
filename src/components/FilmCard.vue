@@ -1,9 +1,8 @@
 <script>
 import SerieCard from './SerieCard.vue'
 export default {
-    name: "CharactersList",
     components: {
-        SingleCharacter,
+       SerieCard,
     },
     data() {
         return {
@@ -14,8 +13,6 @@ export default {
 </script>
 
 <template>
-
-
 
 </template>
 

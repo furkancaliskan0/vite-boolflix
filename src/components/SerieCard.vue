@@ -1,6 +1,5 @@
 <script>
 export default {
-    name: "SingleCharacter",
     data() {
         return {
             store,
