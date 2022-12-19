@@ -1,30 +1,40 @@
-<script >
+<script>
+import axios from 'axios';
 import FilmCard from './components/FilmCard.vue'
-import SerieCard from './components/SerieCard.vue'
-import AppHeader from './components/AppHeader.vue'
-
-
+import { store } from './store.js';
 export default {
-  name: "App",
   components: {
-    AppHeader,
     FilmCard,
-    SerieCard
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    getMovies() {
+      let myUrl = store.apiUrl;
 
-
+      
+      axios
+        .get(myUrl)
+        .then(res => {
+          store.moviesList = res.data.results
+        }
+        )
+    }
+  },
+  mounted() {
+    this.getMovies();
   }
 }
-
-
 </script>
 
 <template>
-  <AppHeader />
-  <FilmCard />
-  <SerieCard />
-
+   <main>
+    <FilmCard />
+  </main>
 </template>
 
-<style  lang="scss" scoped>
-
+<style lang="scss">
 </style>

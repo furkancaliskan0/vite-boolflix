@@ -2,17 +2,20 @@
 
 export default {
     name: "AppHeader",
-    props: {
+    data() {
+    return {
+      store,
     }
+}
     
 }
 </script>
 
 <template>
-      <h1>Hello</h1>
+    
   
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
