@@ -1,10 +1,13 @@
 <script>
 import axios from 'axios';
 import FilmCard from './components/FilmCard.vue'
+import AppHeader from './components/AppHeader.vue';
 import { store } from './store.js';
+
 export default {
   components: {
     FilmCard,
+    AppHeader
   },
   data() {
     return {
@@ -14,6 +17,9 @@ export default {
   methods: {
     getMovies() {
       let myUrl = store.apiUrl;
+       if (store.searchText !== '') {
+        myUrl = `https://api.themoviedb.org/3/search/movie?api_key=58f2df07dfea14b2ec249e535f5ee506&query=${store.searchText}`
+      }
 
       
       axios
@@ -31,10 +37,16 @@ export default {
 </script>
 
 <template>
+  <AppHeader @search="getMovies" />
    <main>
     <FilmCard />
   </main>
 </template>
 
 <style lang="scss">
+@use './styles/general.scss' as *;
+
+h1{
+  color: white;
+}
 </style>
