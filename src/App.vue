@@ -46,7 +46,8 @@ export default {
 <style lang="scss">
 @use './styles/general.scss' as *;
 
-h1{
+
+h4{
   color: white;
 }
 </style>

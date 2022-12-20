@@ -12,14 +12,14 @@ export default {
 <template>
   <header>
     <div class="container">
-      <h1>Boolflix</h1>
+      <h1>BOOLFLIX</h1>
 
-      <div class="search-holder">
+      <section class="search-holder">
         <input type="search" placeholder="" v-model="store.searchText">
         <button type="submit" @click.prevent="$emit('search')">
           Search
         </button>
-      </div>
+      </section>
     </div>
   </header>
 </template>
@@ -30,8 +30,16 @@ export default {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-  h1 {
-    color: $background;
-  }
+    height: 100px;
+    padding: 10px;
 }
+  h1 {
+    color: $title;
+  }
+  button {
+    background-color: white;
+    color: black;
+}
+
+
 </style>
