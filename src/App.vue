@@ -16,12 +16,13 @@ export default {
   },
   methods: {
     getMovies() {
-      let myUrl = store.apiUrl;
-       if (store.searchText !== '') {
-        myUrl = `https://api.themoviedb.org/3/search/movie?api_key=58f2df07dfea14b2ec249e535f5ee506&query=${store.searchText}`
-      }
+      let myUrl = store.moviesAPI;
 
-      
+        if (store.searchText !== '') {
+          myUrl = `https://api.themoviedb.org/3/search/movie?api_key=58f2df07dfea14b2ec249e535f5ee506&query=${store.searchText}`
+        }
+
+     // per connettersi all api 
       axios
         .get(myUrl)
         .then(res => {
@@ -30,6 +31,22 @@ export default {
         )
     }
   },
+  getTv() {
+      let myUrl = store.tvAPI;
+      if (store.searchText !== '') {
+        myUrl = `https://api.themoviedb.org/3/search/tv?api_key=6fd82c7e095558dcca8a44519f3dc58a&query=${store.searchText}`
+      }
+      axios
+        .get(myUrl)
+        .then(res => {
+          store.tvList = res.data.results
+        }
+        )
+    },
+    searchBoth() {
+      this.getMovies()
+      this.getTv()
+    },
   mounted() {
     this.getMovies();
   }
@@ -37,7 +54,7 @@ export default {
 </script>
 
 <template>
-  <AppHeader @search="getMovies" />
+    <AppHeader @search="getMovies" />
    <main>
     <FilmCard />
   </main>

@@ -1,5 +1,7 @@
 <script>
 import { store } from '../store.js';
+
+
 export default {
   data() {
     return {
@@ -12,14 +14,13 @@ export default {
 <template>
   <header>
     <div class="container">
-      <h1>BOOLFLIX</h1>
-
-      <section class="search-holder">
-        <input type="search" placeholder="" v-model="store.searchText">
-        <button type="submit" @click.prevent="$emit('search')">
+      <h1 class="mx-3">BOOLFLIX</h1>
+      <div class="search-holder">
+      <input type="search" placeholder="" v-model="store.searchText">  
+          <button type="submit" @click.prevent="$emit('search')" >
           Search
-        </button>
-      </section>
+          </button>
+        </div>
     </div>
   </header>
 </template>
@@ -31,7 +32,7 @@ export default {
     justify-content: space-evenly;
     align-items: center;
     height: 100px;
-    padding: 10px;
+    padding: 50px;
 }
   h1 {
     color: $title;
@@ -40,6 +41,7 @@ export default {
     background-color: white;
     color: black;
 }
+
 
 
 </style>
