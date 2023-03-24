@@ -3,20 +3,22 @@
     margin: 0;
     box-sizing: border-box;
   }
- body {
+
+body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgb(22, 22, 22);
+  background-color: rgba(0, 0, 0, 0.968);
+  height: 100vh;
+  width: 100vw;
 }
+
 .container {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  max-width: 100%;
-  margin: 0 100px;
+  gap: 25px;
+  width: 100%;
+  margin: 0 200px;
 }
-h1,
-h4{
-  color: white;
-}
+
+
 
 
